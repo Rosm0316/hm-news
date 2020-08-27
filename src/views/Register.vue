@@ -1,5 +1,5 @@
 <template>
-  <div>这是注册界面</div>
+  <hm-header>注册</hm-header>
 </template>
 <script>
 </script>
