@@ -10,8 +10,10 @@ import 'vant/lib/index.css'
 import 'amfe-flexible'
 // 引入HmHeader
 import HmHeader from './components/HmHeader.vue'
+import HmLogin from './components/HmLogo.vue'
 // 注册全局组件
 Vue.component('hm-header', HmHeader)
+Vue.component('hm-logo', HmLogin)
 
 // 全局的把所有组件的vant都导入好了
 Vue.use(Vant)
