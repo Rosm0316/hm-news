@@ -30,13 +30,20 @@
 <script>
 // import axios from 'axios'
 export default {
+  // create () {
+  // },
   methods: {
     async onSubmit () {
       // console.log('登录')
       const res = await this.$axios.post('/login', this.user)
-      const { statusCode, message } = res.data
+      const { statusCode, message, data } = res.data
       if (statusCode === 200) {
         this.$toast.success(message)
+        // console.log(res)
+        // 把token存起来
+        localStorage.setItem('token', data.token)
+        // 把userId存起来
+        localStorage.setItem('userId', data.user.id)
         this.$router.push('/user')
       } else {
         this.$toast.fail('登录失败')
@@ -64,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .tips {
   font-size: 16px;
   text-align: right;
