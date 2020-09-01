@@ -31,6 +31,9 @@
     <hm-navitem>
       <template>设置</template>
     </hm-navitem>
+    <div style="margin: 30px;">
+      <van-button type="primary" block @click="logout">退出</van-button>
+    </div>
   </div>
 </template>
 <script>
@@ -45,23 +48,32 @@ export default {
       return this.$axios.defaults.baseURL
     }
   },
+  methods: {
+    async logout () {
+      try {
+        await this.$dialog.confirm({
+          title: '温馨提示',
+          message: '你确定要退出吗?'
+        })
+      } catch (error) {
+        return this.$toast('取消退出')
+      }
+      // 说明点了确定
+
+      this.$router.push('/login')
+      localStorage.removeItem('token')
+      localStorage.removeItem('user')
+      this.$toast.success('退出成功')
+    }
+  },
   async created () {
     const userId = localStorage.getItem('userId')
-    const token = localStorage.getItem('token')
-    const res = await this.$axios.get(`/user/${userId}`, {
-      headers: {
-        Authorization: token
-      }
-    })
+    // const token = localStorage.getItem('token')
+    const res = await this.$axios.get(`/user/${userId}`)
     const { statusCode, data } = res.data
     if (statusCode === 200) {
       this.user = data
       // console.log(this.user)
-    } else if (statusCode === 401) {
-      this.$toast('用户验证失败')
-      this.$router.push('/login')
-      localStorage.removeItem('userId')
-      localStorage.removeItem('token')
     }
   }
 }
