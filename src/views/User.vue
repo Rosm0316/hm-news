@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-    <div class="header">
+    <div class="header" @click="$router.push('/user-edit')">
       <div class="avatar">
         <img :src="base + user.head_img" alt="">
       </div>
@@ -28,7 +28,7 @@
       <template>我的收藏</template>
       <template #content>文章/视频</template>
     </hm-navitem>
-    <hm-navitem>
+    <hm-navitem to="/user-edit">
       <template>设置</template>
     </hm-navitem>
     <div style="margin: 30px;">
