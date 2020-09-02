@@ -4,6 +4,8 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import User from '../views/User.vue'
 import UserEdit from '../views/UserEdit.vue'
+import Follow from '../views/Follow.vue'
+import myComment from '../views/myComment.vue'
 
 Vue.use(VueRouter)
 
@@ -11,7 +13,9 @@ const routes = [
   { path: '/login', component: Login, name: 'login' },
   { path: '/register', component: Register, name: 'register' },
   { path: '/user', component: User, name: 'user' },
-  { path: '/user-edit', component: UserEdit, name: 'user-edit' }
+  { path: '/user-edit', component: UserEdit, name: 'user-edit' },
+  { path: '/follow', component: Follow, name: 'follow' },
+  { path: '/my-comment', component: myComment, name: 'my-comment' }
 ]
 
 const router = new VueRouter({
@@ -32,7 +36,7 @@ router.beforeEach(function (to, from, next) {
   // }
   // 优化导航守卫
   // 需要拦截的所有页面
-  const authUrls = ['/user', '/user-edit']
+  const authUrls = ['/user', '/user-edit', '/follow', '/my-comment']
   if (!authUrls.includes(to.path) || token) {
     next()
   } else {
