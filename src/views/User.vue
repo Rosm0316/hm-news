@@ -24,7 +24,7 @@
       <template>我的跟帖</template>
       <template #content>跟帖/回复</template>
     </hm-navitem>
-    <hm-navitem>
+    <hm-navitem to="/my-star">
       <template>我的收藏</template>
       <template #content>文章/视频</template>
     </hm-navitem>
@@ -78,7 +78,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .header {
   display: flex;
   align-items: center; //次轴垂直居中
