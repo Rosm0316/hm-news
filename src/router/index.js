@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
-import Register from '../views/Register.vue'
-import User from '../views/User.vue'
-import UserEdit from '../views/UserEdit.vue'
-import Follow from '../views/Follow.vue'
-import myComment from '../views/myComment.vue'
-import myStar from '../views/myStar.vue'
+import Login from '../views/user/Login.vue'
+import Register from '../views/user/Register.vue'
+import User from '../views/user/User.vue'
+import UserEdit from '../views/user/UserEdit.vue'
+import Follow from '../views/user/Follow.vue'
+import myComment from '../views/user/myComment.vue'
+import myStar from '../views/user/myStar.vue'
+import index from '../views/news/index.vue'
 
 Vue.use(VueRouter)
 
@@ -17,7 +18,8 @@ const routes = [
   { path: '/user-edit', component: UserEdit, name: 'user-edit' },
   { path: '/follow', component: Follow, name: 'follow' },
   { path: '/my-comment', component: myComment, name: 'my-comment' },
-  { path: '/my-star', component: myStar, name: 'my-star' }
+  { path: '/my-star', component: myStar, name: 'my-star' },
+  { path: '/', component: index, name: 'index' }
 ]
 
 const router = new VueRouter({
