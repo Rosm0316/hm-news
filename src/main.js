@@ -15,6 +15,10 @@ import './utils/vant.js'
 
 Vue.config.productionTip = false
 
+// 创建一个bus实例
+const bus = new Vue()
+Vue.prototype.$bus = bus
+
 new Vue({
   router,
   render: h => h(App)

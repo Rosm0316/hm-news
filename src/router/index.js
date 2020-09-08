@@ -8,6 +8,8 @@ import Follow from '../views/user/Follow.vue'
 import myComment from '../views/user/myComment.vue'
 import myStar from '../views/user/myStar.vue'
 import index from '../views/news/index.vue'
+import Manage from '../views/news/Manage.vue'
+import PostDetail from '../views/news/PostDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -19,7 +21,9 @@ const routes = [
   { path: '/follow', component: Follow, name: 'follow' },
   { path: '/my-comment', component: myComment, name: 'my-comment' },
   { path: '/my-star', component: myStar, name: 'my-star' },
-  { path: '/', component: index, name: 'index' }
+  { path: '/', component: index, name: 'index' },
+  { path: '/manage', component: Manage, name: 'manage' },
+  { path: '/post-detail/:id', component: PostDetail, name: 'post-detail' }
 ]
 
 const router = new VueRouter({

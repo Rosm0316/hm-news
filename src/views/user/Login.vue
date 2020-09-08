@@ -44,7 +44,13 @@ export default {
         localStorage.setItem('token', data.token)
         // 把userId存起来
         localStorage.setItem('userId', data.user.id)
-        this.$router.push('/user')
+        // this.$router.push('/user')
+        // 判断地址栏里有没有back,有back就往回跳,没有就跳到user
+        if (this.$route.query.back) {
+          this.$router.back()
+        } else {
+          this.$router.push('/user')
+        }
       } else {
         this.$toast.fail('登录失败')
       }
