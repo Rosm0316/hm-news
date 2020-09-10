@@ -77,11 +77,11 @@ export default {
           this.finished = true
         }
       }
-      console.log(this.commentList)
+      // console.log(this.commentList)
     },
     onLoad () {
       setTimeout(() => {
-        console.log('需要加载更多数据了')
+        // console.log('需要加载更多数据了')
         this.pageIndex++
         this.getCommentList()
       }, 1000)

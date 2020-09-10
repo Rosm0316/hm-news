@@ -47,7 +47,7 @@ export default {
         this.$toast('退出取消关注')
       }
       const res = await this.$axios.get(`/user_unfollow/${id}`)
-      console.log(res)
+      // console.log(res)
       if (res.data.statusCode === 200) {
         this.updateFollow()
         this.$toast('取消关注成功')

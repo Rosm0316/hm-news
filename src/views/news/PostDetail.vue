@@ -113,7 +113,7 @@ export default {
       if (statusCode === 200) {
         this.contentList = data
       }
-      console.log(this.contentList)
+      // console.log(this.contentList)
     },
     getUrl (url) {
       const div = document.createElement('div')
@@ -174,7 +174,7 @@ export default {
       if (statusCode === 200) {
         this.commentList = data
       }
-      console.log(this.commentList)
+      // console.log(this.commentList)
     },
     async onFocus () {
       this.isShowTextarea = true
@@ -189,7 +189,7 @@ export default {
         content: this.content,
         parent_id: this.replyId
       })
-      console.log(res)
+      // console.log(res)
       const { statusCode, message } = res.data
       if (statusCode === 200) {
         this.isShowTextarea = false
@@ -203,10 +203,10 @@ export default {
       if (!this.content) {
         this.isShowTextarea = false
       }
-      console.log('失去焦点了')
+      // console.log('失去焦点了')
     },
     onReply (id, nickname) {
-      console.log('父组件', id, nickname)
+      // console.log('父组件', id, nickname)
       this.onFocus()
       this.nickname = '@' + nickname
       this.replyId = id

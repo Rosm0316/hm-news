@@ -35,7 +35,7 @@ export default {
       return
     }
     const res = await this.$axios.get('/category')
-    console.log(res)
+    // console.log(res)
     const { statusCode, data } = res.data
     if (statusCode === 200) {
       this.activeList = data

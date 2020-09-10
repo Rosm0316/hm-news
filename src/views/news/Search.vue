@@ -75,14 +75,14 @@ export default {
           keyword: this.key
         }
       })
-      console.log(res)
+      // console.log(res)
       const { statusCode, data } = res.data
       if (statusCode === 200 && data.length > 0) {
         this.searchList = data
       } else {
         this.$toast.fail('未查询到关键词内容')
       }
-      console.log(this.searchList)
+      // console.log(this.searchList)
       // 把key添加到缓存中
       // 1.如果原来有这个历史记录,删除即可
       // 2.添加到数组前面
