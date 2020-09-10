@@ -42,7 +42,12 @@
     </div>
     <!-- textarea -->
     <div class="footer-textarea" v-if="isShowTextarea">
-      <textarea :placeholder="'回复:' + nickname" ref="textarea" v-model="content"></textarea>
+      <textarea
+      :placeholder="'回复:' + nickname"
+       ref="textarea"
+       v-model="content"
+       @blur="onBlur"
+       ></textarea>
       <van-button type="primary" @click="publish">发送</van-button>
     </div>
     <!-- input -->
@@ -194,14 +199,12 @@ export default {
         this.getCommonList()
       }
     },
-    // onBlur () {
-    //   this.isShowTextarea = false
-    //   this.content = ''
-    //   console.log('失去焦点了')
-    //   // 等待DOM元素的更新
-    //   // await this.$nextTick()
-    //   // this.$refs.textarea.blur()
-    // },
+    onBlur () {
+      if (!this.content) {
+        this.isShowTextarea = false
+      }
+      console.log('失去焦点了')
+    },
     onReply (id, nickname) {
       console.log('父组件', id, nickname)
       this.onFocus()
